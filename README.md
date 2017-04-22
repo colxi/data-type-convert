@@ -1,6 +1,6 @@
-# data-type-convert (FASM Assembly)
+# data-type-convert (FASM)
 
-**16BIT FASM assembly minimal library**, focused into provide the essential resources, to **convert byte values to diferent ASCII representations**. Code is no OS dependant, so should run easily under most 16BIT enviroments, and is also easilly portable to 32BIT architectures.
+**16BIT x86 minimal library written in FASM assembly**, focused into provide the essential resources, to **convert byte values to diferent ASCII representations**. Code is no OS dependant, so should run under all kind of 16BIT enviroments, and could be easilly ported to 32BIT architectures.
 
 -----
 ###  Available procedures:
@@ -67,4 +67,3 @@ include 'lib/data-type-convert.asm'
  - Implement inverse procedures: `atoi` | `atoui` | `atohex` | `atobin`
 
 
-## License
