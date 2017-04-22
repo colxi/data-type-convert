@@ -2,15 +2,15 @@
 
 **16BIT FASM assembly minimal library**, focused into provide the essential resources, to **convert byte values to diferent ASCII representations**. Code is no OS dependant, so should run easily under most 16BIT enviroments, and is also easilly portable to 32BIT architectures.
 
-
-####  Available procedures:
+-----
+###  Available procedures:
 
   - `itoa` : Signed Integer to ASCII
   - `uitoa` : Unsigned Integer to ASCII
   - `hextoa` : Hexadecimal to ASCII
   - `bintoa` : Binary to ASCII
 
-####  Usage Specifications:
+###  Usage Specifications:
 Procedure | Input Registers
 ------------ | -------------
 `itoa`   | Operates over the signed **WORD** value of the **AX** register  
@@ -20,7 +20,7 @@ Procedure | Input Registers
 
 **Output**: All procedures store their results into a (null terminated) string buffer, referenced by a pointer stored in AX register, after procedure execution is complete.
 
-:information_source: `IMPORTANT: This library uses STACK to preserve the values of the registers on procedure calls. Ensure you have setted your stack segment and pointer.`
+:information_source: **`IMPORTANT: This library uses STACK to preserve the values of the registers on procedure calls. Ensure you have setted your stack segment and pointer.`**
 
 #### Usage Example:
 The following code implements an enviroment to run the example conversion, and provides a print procedure (using BIOS interrupt) to output the result to screen.
