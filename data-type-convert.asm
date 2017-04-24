@@ -79,11 +79,11 @@ uitoa:
         pop dx
         pop bx
         RET
-    .buffer: times 7 db 0           ; 16bit integer max length=5
-                                    ; + extra byte is added to fit thr negative
-                                    ;   symbol (-) when processing calls from
-                                    ;   ITOA proc and handñing negative numbers
-                                    ; + null
+    .buffer: times 6 db 0,0         ; 16bit integer max length=5 + null
+                                    ; extra byte is added to fit thr negative
+                                    ; symbol (-) when processing calls from
+                                    ; ITOA proc and handñing negative numbers
+
 
 ;;**************************************************
  ;
@@ -118,7 +118,7 @@ hextoa:
     pop     cx
     pop     bx
     RET
-    .buffer:    times 3 db 0        ; 2 bytes, one for each character + null
+    .buffer:    times 2 db 0, 0     ; 2 bytes, one for each character + null
     .hexMap:    db    '0123456789ABCDEF'; ASCII mapping
 
 
@@ -157,5 +157,5 @@ bintoa:
     pop     cx
     pop     bx
     RET
-    .buffer:    times   9 db 0      ; 8 bytes, one for each bit  + null
+    .buffer:    times   8 db 0,0    ; 8 bytes, one for each bit  + null
 

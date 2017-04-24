@@ -13,14 +13,14 @@
 ###  Usage Specifications:
 Procedure | Input Registers
 ------------ | -------------
-`itoa`   | Operates over the signed **WORD** value of the **AX** register  
-`uitoa`  | Operates over the unsigned **WORD** value of the **AX** register  
-`hextoa` |  Operates over the **BYTE** value of the **AL** register 
-`bintoa` | Operates over the **BYTE** value of the **AL** register 
+`itoa`   | Operates over the signed **WORD** value of the **AX** register
+`uitoa`  | Operates over the unsigned **WORD** value of the **AX** register
+`hextoa` |  Operates over the **BYTE** value of the **AL** register
+`bintoa` | Operates over the **BYTE** value of the **AL** register
 
-**Output**: All procedures store their results into a (null terminated) string buffer, referenced by a pointer stored in AX register, after procedure execution is complete.
+**Output**: All procedures store their results into a (null terminated) string buffer, referenced by a pointer stored in CX register, after procedure execution is complete.
 
-:information_source: **`IMPORTANT: This library uses STACK to preserve the values of the registers on procedure calls. Ensure you have setted your stack segment and pointer.`**
+:information_source: **`IMPORTANT: This library uses the STACK to preserve the values of the registers on procedure calls. Ensure you have setted your stack segment and pointer.`**
 
 #### Usage Example:
 The following code implements an enviroment to run the example conversion, and provides a print procedure (using BIOS interrupt) to output the result to screen.
@@ -39,6 +39,7 @@ main:
     mov ax, -25231
     call    itoa
     ; *** Conversion done ***
+    mov  ax, cx
     call print
     halt:
     	hlt
