@@ -9,16 +9,18 @@
   - `uitoa` : Unsigned Integer to ASCII
   - `hextoa` : Hexadecimal to ASCII
   - `bintoa` : Binary to ASCII
+  - `atoi` : ASCII to Integer
 
 ###  Usage Specifications:
 Procedure | Input Registers
 ------------ | -------------
 `itoa`   | Operates over the signed **WORD** value of the **AX** register
 `uitoa`  | Operates over the unsigned **WORD** value of the **AX** register
-`hextoa` |  Operates over the **BYTE** value of the **AL** register
+`hextoa` | Operates over the **BYTE** value of the **AL** register
 `bintoa` | Operates over the **BYTE** value of the **AL** register
+`atoi`   | Uses the **AX** string pointer and returns an integer in **AX**
 
-**Output**: All procedures store their results into a (null terminated) string buffer, referenced by a pointer stored in CX register, after procedure execution is complete.
+**Output**: All procedures store their results into a (null terminated) string buffer, referenced by a pointer stored in CX register, after procedure execution is complete (exept: atoi).
 
 :information_source: **`IMPORTANT: This library uses the STACK to preserve the values of the registers on procedure calls. Ensure you have setted your stack segment and pointer.`**
 
